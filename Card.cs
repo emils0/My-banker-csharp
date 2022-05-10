@@ -35,7 +35,7 @@ internal abstract class Card {
         if (amount < 0) {
             throw new InvalidOperationException();
         }
-        _balance = amount;
+        _balance += amount;
     }
 
     public void DecreaseBalance(double amount) {
