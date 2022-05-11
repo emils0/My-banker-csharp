@@ -2,11 +2,11 @@
 
 internal class Program {
     static void Main(string[] args) {
-        Card myCard = new VisaElectron("Emil");
+        Card myCard = new Visa("Emil");
         Console.WriteLine(myCard.GetCard());;
         Console.WriteLine(myCard.Balance);
 
-        myCard.IncreaseBalance(1000.52);
+        myCard.IncreaseBalance(10000);
         Console.WriteLine(myCard.Balance);
 
         myCard.DecreaseBalance(620);

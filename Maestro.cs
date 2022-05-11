@@ -2,7 +2,7 @@ namespace MyBanker;
 
 internal class Maestro : Card {
     public Maestro(string cardOwner) :
-        base(cardOwner, 19, Prefixes, new DateTime(0000, 00, 00)) { }
+        base(cardOwner, 19, Prefixes, new DateTime(0000, 00, 00), 0, 0) { }
 
     // defines the prefixes for generating the card number
     private static readonly string[] Prefixes
