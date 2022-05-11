@@ -3,8 +3,8 @@ namespace MyBanker;
 internal abstract class Card {
     private int _limitPositive;
     internal int LimitPositive { get => _limitPositive; }
-
     private double positiveUse;
+
     private int _limitNegative;
     internal int LimitNegative { get => _limitNegative; }
     private double negativeUse;
