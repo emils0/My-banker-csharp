@@ -16,6 +16,7 @@ internal abstract class Card {
     private readonly string _accountNumber;
     internal string AccountNumber { get => _accountNumber; }
 
+    // the constructor in which I define all the values on creation (except for card owner)
     internal Card(string cardOwner, int length, string[] prefixes, DateTime expirationDate) {
         _cardOwner = cardOwner;
         _cardNumber = GenerateCardNumber(length, prefixes);
@@ -23,6 +24,7 @@ internal abstract class Card {
         _expirationDate = expirationDate;
     }
 
+    // the method I call in order to get information about the card
     public string GetCard() {
         return
             $"Card owner: {CardOwner}\n" +
@@ -31,6 +33,7 @@ internal abstract class Card {
             $"Expiration date: {ExpirationDate}";
     }
 
+    // increases the balance, also makes sure that you cannot decrease the balance using this method
     public void IncreaseBalance(double amount) {
         if (amount < 0) {
             throw new InvalidOperationException();
@@ -38,6 +41,7 @@ internal abstract class Card {
         _balance += amount;
     }
 
+    // used to decrease the balance, also has error handleing
     public void DecreaseBalance(double amount) {
         double temp = _balance - amount;
         if (temp < 0 || amount < 0) {
@@ -46,13 +50,14 @@ internal abstract class Card {
         _balance = temp;
     }
 
+    // this method generates all the account numbers, it's pretty simple cause they're all the same
     private static string GenerateAccountNumber() {
         return "3520" + Random.Shared.Next(10000) + Random.Shared.Next(10000);
     }
 
+    // the method that I use to generate all the card numbers
     private static string GenerateCardNumber(int length, string[] prefixes) {
-        int arrayPlace = Random.Shared.Next(0, prefixes.Length);
-        string output = prefixes[arrayPlace];
+        string output = prefixes[Random.Shared.Next(0, prefixes.Length)];
 
         while (output.Length < length) {
             output += Random.Shared.Next(10).ToString();
