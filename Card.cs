@@ -35,8 +35,8 @@ internal abstract class Card {
         _cardNumber = GenerateCardNumber(length, prefixes);
         _accountNumber = GenerateAccountNumber();
         _expirationDate = expirationDate;
-        this._limitPositive = limitPositive;
-        this._limitNegative = limitNegative;
+        _limitPositive = limitPositive;
+        _limitNegative = limitNegative;
     }
 
     // the method I call in order to get information about the card
